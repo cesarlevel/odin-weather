@@ -24,7 +24,7 @@ export default {
     async function makeWeatherRequest(country = 'Montreal') {
       try {
         const units = isCelsius.value ? 'metric' : 'imperial';
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${country}&APPID=${key}&units=${units}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${country}&APPID=${key}&units=${units}`);
         const {name, main: {temp, feels_like, humidity}, weather: [{description}]} =  await response.json();
         data.name = name;
         data.temp = Math.round(temp);
